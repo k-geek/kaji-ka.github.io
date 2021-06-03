@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: math | Kgeek</title>
+    <title>FQ3_五张卡牌 | Kgeek</title>
     <link href="http://example.com" rel="prefetch" />
 
     
@@ -166,19 +166,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://example.com">Kgeek</a>
         >
-        <span>标签</span>
+        <span>FQ3_五张卡牌</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/math/index.html">math</a>
+                <a href="/2021/06/01/FQ2-%E4%BA%94%E5%BC%A0%E5%8D%A1%E7%89%8C/">FQ3_五张卡牌</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/math/">math</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-06-01
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -186,24 +201,51 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/math/index.html">math</a>
+                    <a href="/2021/06/01/FQ2-%E4%BA%94%E5%BC%A0%E5%8D%A1%E7%89%8C/">FQ3_五张卡牌</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-06-01
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/math/">math</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2021/06/01/FQ2-%E4%BA%94%E5%BC%A0%E5%8D%A1%E7%89%8C/">FQ3_五张卡牌</a>
-            <br>
-            
-            <a href="/2021/05/30/FQ1-%E4%BB%8E1+%E5%BC%80%E5%A7%8B/">FQ1_a+b</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h5 id=""><a href="#" class="headerlink" title=""></a></h5><h2 id="【FQ1】从1-开始"><a href="#【FQ1】从1-开始" class="headerlink" title="【FQ1】从1+开始"></a>【FQ1】从1+开始</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>​    问题：假设一个场景，有你，你的助手，一个路人。路人随机抽取五张牌（除掉大小王），将他交给你的助手。你的助手把其中四张交给你，剩余一张还给路人。请你说出路人手中的牌是什么。（包括花色）</p>
+<p>​    提示：你和你的助手需要设计一种模式，通过筛选手中的五张牌，可以使其中四张牌推算出最后一张牌。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>​    默认J/Q/K=11/12/13</p>
+<p>​    ①首先是花色问题</p>
+<p>​    显然五张牌至少有两张牌是花色一样的。（这个不难理解，不细说。）</p>
+<p>​    助手只要把其中一张给路人，另一张放在牌顶即可。你可以通过第一张牌确定路人手中的牌的花色。</p>
+<p>​    ②牌上的数字</p>
+<p>​    根据提示可知我们需要用剩下的四张牌推算第五张牌。</p>
+<p>​    由于第一张是定位路人牌的花色。所以还剩下三张牌。三张牌可以表示多少数？显然是个排列问题，答案是3！=6种，即可以表示数字1~6。（具体的数字，比如数字1，就用小牌中牌大牌这样的顺序排列表示即可。）</p>
+<p>​    然而路人的牌应该在数字1~13之间。</p>
+<p>​    6个数字可无法表示13个数字。</p>
+<p>​    这个时候我们把目光重新聚焦到定位花色的那张牌。不用说，这张牌也是随机在1~13之间。</p>
+<p>​    想到减法没？</p>
+<p>​    理想情况下：假设助手拿到梅花9和梅花4，只要把9交给路人，4放在牌堆顶，剩下三张牌组成5即可。</p>
+<p>​    然而问题也接踵而至。</p>
+<p>​    上面我们了解到3张牌只能表示的最大数字是6。一旦两张花色相同的牌的差值大于设置上限6，减法的方法就不起作用了。（比如在上述案例中，一旦把梅花4换成梅花2，我们所得差值已经远远大于6了，我们手中的三张牌可无法表示数字7。）</p>
+<p>​    非理想情况下：假设助手拿到梅花9和梅花2。这个时候我们陷入了一个困境——我们没法用三张牌表示数字7。那么我们不妨换个思路，如何用数字9和数字2造1<del>6之间的数。——这段过程想到就想到，没想到就可能卡在这里，这里直接给方案了——利用2+13-9=6去创造1</del>6之间的数字。（后面细说为什么是加13）这个时候你的助手需要的是把2给路人，把9给你，剩下的三张牌组成6。你拿到牌后，知道牌顶是9，三张牌表示的是6，加起来是15，再减去13，就知道路人手中的牌是2。</p>
+<p>​    现在回过头来看为什么是加13？为什么不能是加14或者别的数字呢？</p>
+<p>​    我们可以理解为两张花色相同的牌的差值有两段，一段在[1，6]，另一段在[7，12]。而我们要做的，就是把后一段[7，12]变成前一段[1，6]。显然只有数字13符合条件，即13-[7，12]=[6，1]。如此一来，所有的差值都可以表示为1~6。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>​    ①花色相同的两张牌的差值在[1，6]时候，直接使用减法配置剩余三张牌即可。（大牌给路人）</p>
+<p>​    ②差值在[7，12]时候，需要先让小牌加上13，此时小牌就是大牌。</p>
+<p>​    这个问题的核心点还是在处理差值[7,12]上，如何能想到利用13很关键。我这里写下的是最容易理解为什么加13的思考方法。</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -321,7 +363,7 @@
 
                 
                 <li>
-                    <a href="/tags/math/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2021/06/01/FQ2-%E4%BA%94%E5%BC%A0%E5%8D%A1%E7%89%8C/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
@@ -331,9 +373,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/math/" style="font-size: 10.309278995305261px;" class="tag-cloud-link">math</a>
+    <a href="/tags/math/" style="font-size: 19.992321605775913px;" class="tag-cloud-link">math</a>
     
-    <a href="/tags/live/" style="font-size: 17.74556177178499px;" class="tag-cloud-link">live</a>
+    <a href="/tags/live/" style="font-size: 11.4967408928688px;" class="tag-cloud-link">live</a>
     
 </div>
                 
